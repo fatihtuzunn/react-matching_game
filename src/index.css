@@ -5,7 +5,7 @@ body {
   font-family: Raleway, sans-serif;
   font-size: 1.5em;
   text-align: center;
-  background: #1b1523;
+  background: linear-gradient(to right, #4f07c2, #982ca1a8);
   color: #fff;
 }
 
