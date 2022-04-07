@@ -32,8 +32,9 @@ function App() {
 
   //secimi yakaladık
   const handleChoice = (card)=>{
-    console.log(card.src)
+    //console.log(card.src)
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
+    
   }
 
   //secilen iki itemin es olup olmadigini denetle
@@ -66,14 +67,26 @@ function App() {
     setChoiceTwo(null)
     setTurns(prevTurns => prevTurns+1)
     setDisabled(false)
+    if(turns===10){
+      shuffleCards()
+      alert("Kaybettin!")
+    }
+ 
   }
 
-
+  //game starts auto
+  useEffect(() => {
+    shuffleCards()
+    
+  }, []);
   
+  
+
+
   return (
     <div className="App">
-      <h1>Match GAmE  </h1>
-      <button onClick={shuffleCards}>New Game</button>
+      <p>10 el hakkınız var. <br />Deneme: {turns}</p>
+      
 
 
       <div className="card-grid">
@@ -89,6 +102,7 @@ function App() {
            />
         ))}
       </div>
+      <button onClick={shuffleCards}>RESTART</button>
     </div>
   );
 }

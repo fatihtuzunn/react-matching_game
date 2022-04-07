@@ -7,6 +7,8 @@ function SingleCard({ card, handleChoice, flipped, disabled }) {
       handleChoice(card);
     }
 
+    
+
   }
 
   return (
