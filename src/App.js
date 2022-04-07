@@ -39,11 +39,20 @@ function App() {
   useEffect(()=>{
     if (choiceOne && choiceTwo) {
       if (choiceOne.src === choiceTwo.src) {
-        console.log("eslesti");
+        //console.log("eslesti");
+        setCards(prevCards => {
+          return prevCards.map(card => {
+            if (card.src === choiceOne.src) {
+              return {...card, matched: true}
+            }else{
+              return card
+            }
+          })
+        })
         resetTurn();
       }else{
-        console.log("eslesmedi");
-        resetTurn();
+        //console.log("eslesmedi");
+        setTimeout(() => resetTurn(), 600); 
       }
     }
   }, [choiceOne, choiceTwo])
@@ -68,6 +77,7 @@ function App() {
           key={card.id} 
           card={card}
           handleChoice={handleChoice}
+          flipped={card === choiceOne || card === choiceTwo || card.matched}
            />
         ))}
       </div>
