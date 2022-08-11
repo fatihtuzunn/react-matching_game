@@ -59,7 +59,9 @@ function App() {
         setTimeout(() => resetTurn(), 600); 
       }
     }
-  }, [choiceOne, choiceTwo, resetTurn])
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+
+  }, [choiceOne, choiceTwo])
 
   //secilenleri yenile deneme sayisini arttir
   const resetTurn = ()=>{
