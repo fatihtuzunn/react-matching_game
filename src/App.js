@@ -59,7 +59,7 @@ function App() {
         setTimeout(() => resetTurn(), 600); 
       }
     }
-  }, [choiceOne, choiceTwo])
+  }, [choiceOne, choiceTwo, resetTurn])
 
   //secilenleri yenile deneme sayisini arttir
   const resetTurn = ()=>{
