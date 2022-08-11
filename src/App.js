@@ -39,7 +39,18 @@ function App() {
 
   //secilen iki itemin es olup olmadigini denetle
   useEffect(()=>{
-    
+      //secilenleri yenile deneme sayisini arttir
+  const resetTurn = ()=>{
+    setChoiceOne(null)
+    setChoiceTwo(null)
+    setTurns(prevTurns => prevTurns+1)
+    setDisabled(false)
+    if(turns===10){
+      shuffleCards()
+      alert("Kaybettin!")
+    }
+ 
+  }
     if (choiceOne && choiceTwo) {
       setDisabled(true)
       if (choiceOne.src === choiceTwo.src) {
@@ -63,18 +74,7 @@ function App() {
 
   }, [choiceOne, choiceTwo])
 
-  //secilenleri yenile deneme sayisini arttir
-  const resetTurn = ()=>{
-    setChoiceOne(null)
-    setChoiceTwo(null)
-    setTurns(prevTurns => prevTurns+1)
-    setDisabled(false)
-    if(turns===10){
-      shuffleCards()
-      alert("Kaybettin!")
-    }
- 
-  }
+
 
   //game starts auto
   useEffect(() => {
